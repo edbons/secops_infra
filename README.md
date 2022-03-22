@@ -43,6 +43,8 @@ docker compose -f infra-compose.yaml -p sast-infra up -d --build
 docker compose -f sast-compose.yaml -p sast-cli up -d
 ```
 
+5. (Опционально) В интерфейсе JENKINS http://127.0.0.1:8081 запустить задание "goatlin-scan", настроенного для демонстрации встраивания sast в pipeline.
+
 ## Результаты
 
 1. Checkmarx содержит большее число проверок на уязвимости для языка Kotlin по сравнению с Insider 58 против 34.
