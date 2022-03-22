@@ -24,16 +24,18 @@
 
 ## Порядок запуска
 
-1. Запустить инфраструктуру проекта Jenkins, Sonarqube:
+1. Задать переменные окружения для JENKINS:
+   * JENKINS_ADMIN_ID - логин нового пользователя JENKINS;
+   * JENKINS_ADMIN_PASSWORD - пароль для нового пользователя JENKINS.
+2. Запустить инфраструктуру проекта Jenkins, Sonarqube:
 
 ```
-docker compose -f infra-compose.yaml -p sast-infra up -d
+docker compose -f infra-compose.yaml -p sast-infra up -d --build
 ```
 
 2. В Sonarqube создать проект и получить токен для доступа к проекту.
-3. Задать переменные окружения:
+3. Задать переменные окружения для Sonarqube:
    * SONAR_PROJECT - название проекта в Sonarqube;
-   * SONAR_SERVER - адрес сервера Sonarqube в Docker;
    * SONAR_TOKEN  - токен для доступа к проекту в Sonarqube.
 4. Запустить сканирование:
 
