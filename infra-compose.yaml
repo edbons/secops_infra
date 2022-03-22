@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  jenkins:
+    image: jenkins-master #jenkins/jenkins:lts-jdk11
+    build:
+      context: ./ci      
+    hostname: 'jenkins.local'
+    ports:
+      - 8081:8080
+      - 50000:50000
+    volumes:
+      - jenkins-data:/var/jenkins_home
+    environment:
+      - JENKINS_ADMIN_ID=${JENKINS_ADMIN_ID}
+      - JENKINS_ADMIN_PASSWORD=${JENKINS_ADMIN_PASSWORD} 
+
+  sonar-ce:
+    image: sonarqube:9.3.0-community
+    hostname: 'sonar'
+    ports:
+      - 9000:9000
+    expose:
+      - 9000:9000
+    environment:
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+    volumes:
+      - sonar_data:/opt/sonarqube/data
+      - sonar_logs:/opt/sonarqube/logs
+      - sonar_extensions:/opt/sonarqube/extensions
+    networks:
+      - sonar-net
+
+volumes:
+  jenkins-data:
+  sonar_data: 
+  sonar_logs: 
+  sonar_extensions: 
+
+networks:
+  sonar-net:
+    name: sonar-net

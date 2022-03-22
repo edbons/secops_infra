@@ -1,0 +1,325 @@
+{
+ "vulnerabilities": [
+  {
+   "cvss": 3.2,
+   "cwe": "CWE-532",
+   "line": 68,
+   "class": "EditNoteActivity.kt (68:17)",
+   "vul_id": "9a4989683012c82490883efa857229ce",
+   "method": "Log.e(\"EditNoteActivity\", e.toString())",
+   "column": 17,
+   "description": "The App logs information. Sensitive information should not be logged.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/EditNoteActivity.kt (68:17)"
+  },
+  {
+   "cvss": 3.2,
+   "cwe": "CWE-532",
+   "line": 68,
+   "class": "EditNoteActivity.kt (68:17)",
+   "vul_id": "9a4989683012c82490883efa857229ce",
+   "method": "Log.e(\"EditNoteActivity\", e.toString())",
+   "column": 17,
+   "description": "The App logs information. Sensitive information should not be logged.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/EditNoteActivity.kt (68:17)"
+  },
+  {
+   "cvss": 5,
+   "cwe": "CWE-919",
+   "line": 47,
+   "class": "HomeActivity.kt (47:17)",
+   "vul_id": "e0d19b964efa77d0b9675b6e7181cca7",
+   "method": "Context.MODE_PRIVATE)",
+   "column": 17,
+   "description": "App can write to App Directory. Sensitive Information should be encrypted.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/HomeActivity.kt (47:17)"
+  },
+  {
+   "cvss": 3.2,
+   "cwe": "CWE-532",
+   "line": 101,
+   "class": "HomeActivity.kt (101:21)",
+   "vul_id": "47e0f88142eba3a73e66e69f5a10b23b",
+   "method": "Log.e(\"Sync\", t.message.toString())",
+   "column": 21,
+   "description": "The App logs information. Sensitive information should not be logged.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/HomeActivity.kt (101:21)"
+  },
+  {
+   "cvss": 3.2,
+   "cwe": "CWE-532",
+   "line": 105,
+   "class": "HomeActivity.kt (105:21)",
+   "vul_id": "5ccb24ecf0710f9fe987da7db8657e7b",
+   "method": "Log.i(\"Sync\", \"Note #$id: ${response.code()}\")",
+   "column": 21,
+   "description": "The App logs information. Sensitive information should not be logged.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/HomeActivity.kt (105:21)"
+  },
+  {
+   "cvss": 5,
+   "cwe": "CWE-919",
+   "line": 47,
+   "class": "HomeActivity.kt (47:17)",
+   "vul_id": "e0d19b964efa77d0b9675b6e7181cca7",
+   "method": "Context.MODE_PRIVATE)",
+   "column": 17,
+   "description": "App can write to App Directory. Sensitive Information should be encrypted.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/HomeActivity.kt (47:17)"
+  },
+  {
+   "cvss": 3.2,
+   "cwe": "CWE-532",
+   "line": 101,
+   "class": "HomeActivity.kt (101:21)",
+   "vul_id": "47e0f88142eba3a73e66e69f5a10b23b",
+   "method": "Log.e(\"Sync\", t.message.toString())",
+   "column": 21,
+   "description": "The App logs information. Sensitive information should not be logged.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/HomeActivity.kt (101:21)"
+  },
+  {
+   "cvss": 3.2,
+   "cwe": "CWE-532",
+   "line": 105,
+   "class": "HomeActivity.kt (105:21)",
+   "vul_id": "5ccb24ecf0710f9fe987da7db8657e7b",
+   "method": "Log.i(\"Sync\", \"Note #$id: ${response.code()}\")",
+   "column": 21,
+   "description": "The App logs information. Sensitive information should not be logged.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/HomeActivity.kt (105:21)"
+  },
+  {
+   "cvss": 5,
+   "cwe": "CWE-919",
+   "line": 22,
+   "class": "ServerInfoActivity.kt (22:17)",
+   "vul_id": "8f2f92312c6c986706021ad17cc078c9",
+   "method": "Context.MODE_PRIVATE)",
+   "column": 17,
+   "description": "App can write to App Directory. Sensitive Information should be encrypted.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/ServerInfoActivity.kt (22:17)"
+  },
+  {
+   "cvss": 5,
+   "cwe": "CWE-919",
+   "line": 43,
+   "class": "ServerInfoActivity.kt (43:25)",
+   "vul_id": "da003ea728b3d30246543b333dacf8fc",
+   "method": "Context.MODE_PRIVATE)",
+   "column": 25,
+   "description": "App can write to App Directory. Sensitive Information should be encrypted.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/ServerInfoActivity.kt (43:25)"
+  },
+  {
+   "cvss": 5,
+   "cwe": "CWE-919",
+   "line": 22,
+   "class": "ServerInfoActivity.kt (22:17)",
+   "vul_id": "8f2f92312c6c986706021ad17cc078c9",
+   "method": "Context.MODE_PRIVATE)",
+   "column": 17,
+   "description": "App can write to App Directory. Sensitive Information should be encrypted.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/ServerInfoActivity.kt (22:17)"
+  },
+  {
+   "cvss": 5,
+   "cwe": "CWE-919",
+   "line": 43,
+   "class": "ServerInfoActivity.kt (43:25)",
+   "vul_id": "da003ea728b3d30246543b333dacf8fc",
+   "method": "Context.MODE_PRIVATE)",
+   "column": 25,
+   "description": "App can write to App Directory. Sensitive Information should be encrypted.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/ServerInfoActivity.kt (43:25)"
+  },
+  {
+   "cvss": 3.2,
+   "cwe": "CWE-532",
+   "line": 51,
+   "class": "SignupActivity.kt (51:17)",
+   "vul_id": "eccc87a3b96a8dd24f4d96dff41a2050",
+   "method": "Log.e(\"SingupActivity\", t.message.toString())",
+   "column": 17,
+   "description": "The App logs information. Sensitive information should not be logged.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/SignupActivity.kt (51:17)"
+  },
+  {
+   "cvss": 3.2,
+   "cwe": "CWE-532",
+   "line": 51,
+   "class": "SignupActivity.kt (51:17)",
+   "vul_id": "eccc87a3b96a8dd24f4d96dff41a2050",
+   "method": "Log.e(\"SingupActivity\", t.message.toString())",
+   "column": 17,
+   "description": "The App logs information. Sensitive information should not be logged.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/SignupActivity.kt (51:17)"
+  },
+  {
+   "cvss": 5,
+   "cwe": "CWE-919",
+   "line": 11,
+   "class": "PreferenceHelper.kt (11:83)",
+   "vul_id": "fbe012ca3ef886e64a17f9b3fbd16d12",
+   "method": "sharedPreferences = context.getSharedPreferences(context.packageName, Context.MODE_PRIVATE)",
+   "column": 83,
+   "description": "App can write to App Directory. Sensitive Information should be encrypted.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/helpers/PreferenceHelper.kt (11:83)"
+  },
+  {
+   "cvss": 5,
+   "cwe": "CWE-919",
+   "line": 11,
+   "class": "PreferenceHelper.kt (11:83)",
+   "vul_id": "fbe012ca3ef886e64a17f9b3fbd16d12",
+   "method": "sharedPreferences = context.getSharedPreferences(context.packageName, Context.MODE_PRIVATE)",
+   "column": 83,
+   "description": "App can write to App Directory. Sensitive Information should be encrypted.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/helpers/PreferenceHelper.kt (11:83)"
+  },
+  {
+   "cvss": 5,
+   "cwe": "CWE-919",
+   "line": 243,
+   "class": "LoginActivity.kt (243:61)",
+   "vul_id": "8a2c7989aa2da2403e7916f722306efb",
+   "method": "applicationContext.packageName, Context.MODE_PRIVATE)",
+   "column": 61,
+   "description": "App can write to App Directory. Sensitive Information should be encrypted.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/LoginActivity.kt (243:61)"
+  },
+  {
+   "cvss": 5,
+   "cwe": "CWE-919",
+   "line": 243,
+   "class": "LoginActivity.kt (243:61)",
+   "vul_id": "8a2c7989aa2da2403e7916f722306efb",
+   "method": "applicationContext.packageName, Context.MODE_PRIVATE)",
+   "column": 61,
+   "description": "App can write to App Directory. Sensitive Information should be encrypted.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/LoginActivity.kt (243:61)"
+  },
+  {
+   "cvss": 5,
+   "cwe": "CWE-919",
+   "line": 20,
+   "class": "DatabaseHelper.kt (20:13)",
+   "vul_id": "f6625ba2012707153b2138fceaea648f",
+   "method": "Context.MODE_PRIVATE",
+   "column": 13,
+   "description": "App can write to App Directory. Sensitive Information should be encrypted.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/helpers/DatabaseHelper.kt (20:13)"
+  },
+  {
+   "cvss": 3.2,
+   "cwe": "CWE-532",
+   "line": 72,
+   "class": "DatabaseHelper.kt (72:13)",
+   "vul_id": "abc100f7bdb7a543eedf60cba4062f3e",
+   "method": "Log.e(\"Database signup\", e.toString())",
+   "column": 13,
+   "description": "The App logs information. Sensitive information should not be logged.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/helpers/DatabaseHelper.kt (72:13)"
+  },
+  {
+   "cvss": 3.2,
+   "cwe": "CWE-532",
+   "line": 121,
+   "class": "DatabaseHelper.kt (121:13)",
+   "vul_id": "d2e3fb3f141b29fdbc4579cd70c2e45d",
+   "method": "Log.e(\"Add Note\", e.toString())",
+   "column": 13,
+   "description": "The App logs information. Sensitive information should not be logged.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/helpers/DatabaseHelper.kt (121:13)"
+  },
+  {
+   "cvss": 5,
+   "cwe": "CWE-919",
+   "line": 20,
+   "class": "DatabaseHelper.kt (20:13)",
+   "vul_id": "f6625ba2012707153b2138fceaea648f",
+   "method": "Context.MODE_PRIVATE",
+   "column": 13,
+   "description": "App can write to App Directory. Sensitive Information should be encrypted.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/helpers/DatabaseHelper.kt (20:13)"
+  },
+  {
+   "cvss": 3.2,
+   "cwe": "CWE-532",
+   "line": 72,
+   "class": "DatabaseHelper.kt (72:13)",
+   "vul_id": "abc100f7bdb7a543eedf60cba4062f3e",
+   "method": "Log.e(\"Database signup\", e.toString())",
+   "column": 13,
+   "description": "The App logs information. Sensitive information should not be logged.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/helpers/DatabaseHelper.kt (72:13)"
+  },
+  {
+   "cvss": 3.2,
+   "cwe": "CWE-532",
+   "line": 121,
+   "class": "DatabaseHelper.kt (121:13)",
+   "vul_id": "d2e3fb3f141b29fdbc4579cd70c2e45d",
+   "method": "Log.e(\"Add Note\", e.toString())",
+   "column": 13,
+   "description": "The App logs information. Sensitive information should not be logged.",
+   "classMessage": "clients/android/app/src/main/java/com/cx/goatlin/helpers/DatabaseHelper.kt (121:13)"
+  }
+ ],
+ "none": 0,
+ "low": 12,
+ "medium": 12,
+ "high": 0,
+ "critical": 0,
+ "total": 24,
+ "android": {
+  "packageName": "com.cx.goatlin",
+  "size": "304111 Bytes",
+  "averageCvss": 5,
+  "securityScore": 50,
+  "mainActivity": "com.cx.goatlin.LoginActivity",
+  "numberOfLines": 4190
+ },
+ "activities": [
+  {
+   "activity": "com.cx.goatlin.LoginActivity"
+  },
+  {
+   "activity": "com.cx.goatlin.HomeActivity"
+  },
+  {
+   "activity": "com.cx.goatlin.SignupActivity"
+  },
+  {
+   "activity": "com.cx.goatlin.EditNoteActivity"
+  },
+  {
+   "activity": "com.cx.goatlin.ServerInfoActivity"
+  }
+ ],
+ "permissions": [
+  {
+   "title": "android.permission.GET_ACCOUNTS",
+   "status": "Desconhecido",
+   "description": "discover registered accounts",
+   "info": "Allows the app to access a list of accounts identified by the phone."
+  },
+  {
+   "title": "android.permission.READ_PROFILE",
+   "status": "Desconhecido",
+   "description": "read the user's personal profile data",
+   "info": "Allows the Application to read the user's personal data."
+  },
+  {
+   "title": "android.permission.READ_CONTACTS",
+   "status": "Desconhecido",
+   "description": "read contact information",
+   "info": "Allows the app to read all the contact (address) data captured on your phone. Malicious apps can use this to send your data to others."
+  },
+  {
+   "title": "android.permission.INTERNET",
+   "status": "Desconhecido",
+   "description": "full internet access",
+   "info": "Allows the application to create network sockets."
+  }
+ ]
+}

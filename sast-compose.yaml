@@ -1,0 +1,56 @@
+version: "3.9"
+
+services:
+  
+  goatlin:
+    image: goatlin:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    init: true
+    volumes:
+      - src:/src/Goatlin/packages
+  
+  horusec-cli:
+    privileged: true
+    image: horuszup/horusec-cli:latest
+    depends_on:
+      - goatlin
+    volumes:
+      - src:/src/horusec
+      - type: bind
+        source: ./reports/horusec/report.json
+        target: /src/horusec/reports/report.json
+      - //var/run/docker.sock:/var/run/docker.sock    
+    environment:
+      - HORUSEC_CLI_PROJECT_PATH=/src/horusec
+    command: horusec start -o=json -O=/src/horusec/reports/report.json
+
+  insider-cli:
+    image: insidersec/insider
+    depends_on:
+      - goatlin
+    volumes:
+      - type: bind
+        source: ./reports/insider/report.json
+        target: /opt/insider/report.json
+      - src:/target-project
+    command: -tech android -target /target-project -no-html -exclude .horusec/*
+
+  sonar-cli:
+    image: sonarsource/sonar-scanner-cli
+    depends_on:
+      - goatlin
+    networks:
+      - sonar-ext
+    volumes:
+      - src:/usr/src
+    command: -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.sources=/usr/src -Dsonar.host.url=http://sonar:9000 -Dsonar.login=${SONAR_TOKEN}
+
+networks:
+  sonar-ext:
+    external: true
+    name: sonar-net
+
+volumes:
+  src:
