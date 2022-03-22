@@ -20,5 +20,4 @@ gradle-app.setting
 *.rb
 sast/
 .env
-ci/
 

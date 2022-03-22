@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Checkmarx/Goatlin.git']]])
+            }
+        }
+        
+        stage ('SAST') {
+                    steps {
+                            sh 'wget https://github.com/insidersec/insider/releases/download/2.1.0/insider_2.1.0_linux_x86_64.tar.gz'
+                            sh 'tar -xf insider_2.1.0_linux_x86_64.tar.gz' 
+                            sh 'chmod +x insider'
+                            sh './insider --tech android --target ./packages'
+                    }
+                }
+
+    }
+}

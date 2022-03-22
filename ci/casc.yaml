@@ -1,0 +1,30 @@
+jenkins:
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+       - id: ${JENKINS_ADMIN_ID}
+         password: ${JENKINS_ADMIN_PASSWORD}
+
+unclassified:
+  location:
+    url: http://127.0.0.1:8081/
+
+jobs:
+  - script: >
+      pipelineJob('goatlin-scan') {
+        definition {
+          cpsScm {
+            scm {
+              git{
+                remote {
+                  url("https://github.com/edbons/secops_infra.git")
+                }
+                branch("*/main")
+              }
+            }
+            
+            scriptPath("ci/Jenkinsfile")
+          }
+        }
+      }
