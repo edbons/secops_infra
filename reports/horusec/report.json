@@ -1,21 +1,21 @@
 {
   "version": "v2.7.1",
-  "id": "0ee6c25e-dd74-4b32-b5e3-5cfed0e6c27d",
+  "id": "8638e362-c86b-452f-85ea-3d751d7d2054",
   "repositoryID": "00000000-0000-0000-0000-000000000000",
   "repositoryName": "",
   "workspaceID": "00000000-0000-0000-0000-000000000000",
   "workspaceName": "",
   "status": "error",
-  "errors": "Error while running tool NpmAudit: Error response from daemon: invalid mount config for type \"bind\": bind source path does not exist: /src/horusec/.horusec/0ee6c25e-dd74-4b32-b5e3-5cfed0e6c27d; Error while running tool Semgrep: Error response from daemon: invalid mount config for type \"bind\": bind source path does not exist: /src/horusec/.horusec/0ee6c25e-dd74-4b32-b5e3-5cfed0e6c27d; Error while running tool Trivy: trivy filesystem cmd: Error response from daemon: invalid mount config for type \"bind\": bind source path does not exist: /src/horusec/.horusec/0ee6c25e-dd74-4b32-b5e3-5cfed0e6c27d; Error while running tool YarnAudit: Error response from daemon: invalid mount config for type \"bind\": bind source path does not exist: /src/horusec/.horusec/0ee6c25e-dd74-4b32-b5e3-5cfed0e6c27d",
-  "createdAt": "2022-03-22T19:04:26.0039952Z",
-  "finishedAt": "2022-03-22T19:04:27.5464791Z",
+  "errors": "Error while running tool Semgrep: Error response from daemon: invalid mount config for type \"bind\": bind source path does not exist: /src/horusec/.horusec/8638e362-c86b-452f-85ea-3d751d7d2054; Error while running tool Trivy: trivy config cmd: Error response from daemon: invalid mount config for type \"bind\": bind source path does not exist: /src/horusec/.horusec/8638e362-c86b-452f-85ea-3d751d7d2054; Error while running tool NpmAudit: Error response from daemon: invalid mount config for type \"bind\": bind source path does not exist: /src/horusec/.horusec/8638e362-c86b-452f-85ea-3d751d7d2054; Error while running tool YarnAudit: Error response from daemon: invalid mount config for type \"bind\": bind source path does not exist: /src/horusec/.horusec/8638e362-c86b-452f-85ea-3d751d7d2054",
+  "createdAt": "2022-03-22T19:18:05.3968457Z",
+  "finishedAt": "2022-03-22T19:18:06.7596363Z",
   "analysisVulnerabilities": [
     {
       "vulnerabilityID": "00000000-0000-0000-0000-000000000000",
-      "analysisID": "0ee6c25e-dd74-4b32-b5e3-5cfed0e6c27d",
-      "createdAt": "2022-03-22T19:04:27.5464973Z",
+      "analysisID": "8638e362-c86b-452f-85ea-3d751d7d2054",
+      "createdAt": "2022-03-22T19:18:06.7596614Z",
       "vulnerabilities": {
-        "vulnerabilityID": "f1232300-c87a-48b8-a8c0-410885df5b08",
+        "vulnerabilityID": "2771f95b-ffe7-4ebe-86e8-749c79e30cce",
         "line": "231",
         "column": "50",
         "confidence": "MEDIUM",
@@ -36,14 +36,14 @@
     },
     {
       "vulnerabilityID": "00000000-0000-0000-0000-000000000000",
-      "analysisID": "0ee6c25e-dd74-4b32-b5e3-5cfed0e6c27d",
-      "createdAt": "2022-03-22T19:04:27.5464874Z",
+      "analysisID": "8638e362-c86b-452f-85ea-3d751d7d2054",
+      "createdAt": "2022-03-22T19:18:06.759645Z",
       "vulnerabilities": {
-        "vulnerabilityID": "4874f75c-0912-4154-9cf8-bffdeff0cf07",
+        "vulnerabilityID": "1801e5be-ce77-4c31-961b-5cc6a6740cdb",
         "line": "3",
         "column": "7",
         "confidence": "LOW",
-        "file": "clients/android/app/src/main/java/com/cx/goatlin/AccountProvider.kt",
+        "file": "clients/android/app/src/main/java/com/cx/goatlin/NotesProvider.kt",
         "code": "import android.content.ContentProvider",
         "details": "No uses Content Provider\nNo uses Content Provider",
         "securityTool": "HorusecEngine",
@@ -55,15 +55,15 @@
         "commitHash": "-",
         "commitMessage": "-",
         "commitDate": "-",
-        "vulnHash": "dd6b13a97bdc6f1436ad8724cc42b6741e976e74e5772afbaa5c7a6dfe2c1da9"
+        "vulnHash": "f4bf5745f197a23b95e92b17ef2a216986d4d632413b75563619867c40e21199"
       }
     },
     {
       "vulnerabilityID": "00000000-0000-0000-0000-000000000000",
-      "analysisID": "0ee6c25e-dd74-4b32-b5e3-5cfed0e6c27d",
-      "createdAt": "2022-03-22T19:04:27.5464883Z",
+      "analysisID": "8638e362-c86b-452f-85ea-3d751d7d2054",
+      "createdAt": "2022-03-22T19:18:06.7596461Z",
       "vulnerabilities": {
-        "vulnerabilityID": "d40415f1-f717-4a7e-96a4-f3a59b1a89a4",
+        "vulnerabilityID": "e4a014ee-77b9-4a36-bafb-74f2a1b26893",
         "line": "3",
         "column": "7",
         "confidence": "LOW",
@@ -84,10 +84,10 @@
     },
     {
       "vulnerabilityID": "00000000-0000-0000-0000-000000000000",
-      "analysisID": "0ee6c25e-dd74-4b32-b5e3-5cfed0e6c27d",
-      "createdAt": "2022-03-22T19:04:27.5464893Z",
+      "analysisID": "8638e362-c86b-452f-85ea-3d751d7d2054",
+      "createdAt": "2022-03-22T19:18:06.7596471Z",
       "vulnerabilities": {
-        "vulnerabilityID": "a0b60988-bdc1-4533-a0d2-12faa1850214",
+        "vulnerabilityID": "d103c720-745d-481b-a0e2-5a4a84d7ce27",
         "line": "25",
         "column": "43",
         "confidence": "LOW",
@@ -108,10 +108,10 @@
     },
     {
       "vulnerabilityID": "00000000-0000-0000-0000-000000000000",
-      "analysisID": "0ee6c25e-dd74-4b32-b5e3-5cfed0e6c27d",
-      "createdAt": "2022-03-22T19:04:27.5464902Z",
+      "analysisID": "8638e362-c86b-452f-85ea-3d751d7d2054",
+      "createdAt": "2022-03-22T19:18:06.7596485Z",
       "vulnerabilities": {
-        "vulnerabilityID": "75218ba8-f50a-4065-88f3-0603c3c95649",
+        "vulnerabilityID": "ca695bdd-f033-4be7-8d03-1181517f0fa9",
         "line": "25",
         "column": "43",
         "confidence": "LOW",
@@ -132,14 +132,14 @@
     },
     {
       "vulnerabilityID": "00000000-0000-0000-0000-000000000000",
-      "analysisID": "0ee6c25e-dd74-4b32-b5e3-5cfed0e6c27d",
-      "createdAt": "2022-03-22T19:04:27.5464911Z",
+      "analysisID": "8638e362-c86b-452f-85ea-3d751d7d2054",
+      "createdAt": "2022-03-22T19:18:06.7596497Z",
       "vulnerabilities": {
-        "vulnerabilityID": "3a0d7d6c-e2c0-4dfe-b186-65c034d940ed",
+        "vulnerabilityID": "ae2c2b35-b9b8-47fe-b3f7-5b53bfc82a37",
         "line": "3",
         "column": "7",
         "confidence": "LOW",
-        "file": "clients/android/app/src/main/java/com/cx/goatlin/NotesProvider.kt",
+        "file": "clients/android/app/src/main/java/com/cx/goatlin/AccountProvider.kt",
         "code": "import android.content.ContentProvider",
         "details": "No uses Content Provider\nNo uses Content Provider",
         "securityTool": "HorusecEngine",
@@ -151,7 +151,7 @@
         "commitHash": "-",
         "commitMessage": "-",
         "commitDate": "-",
-        "vulnHash": "f4bf5745f197a23b95e92b17ef2a216986d4d632413b75563619867c40e21199"
+        "vulnHash": "dd6b13a97bdc6f1436ad8724cc42b6741e976e74e5772afbaa5c7a6dfe2c1da9"
       }
     }
   ]

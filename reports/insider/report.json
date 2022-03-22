@@ -273,7 +273,7 @@
  "total": 24,
  "android": {
   "packageName": "com.cx.goatlin",
-  "size": "304378 Bytes",
+  "size": "304330 Bytes",
   "averageCvss": 5,
   "securityScore": 50,
   "mainActivity": "com.cx.goatlin.LoginActivity",
