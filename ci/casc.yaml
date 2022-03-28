@@ -19,7 +19,7 @@ jenkins:
             remoteFs: "/home/jenkins/agent"
             connector:
               attach:
-                user: "jenkins"
+                user: "root"
             instanceCapStr: "10"
             retentionStrategy:
               idleMinutes: 10
