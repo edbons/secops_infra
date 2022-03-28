@@ -6,6 +6,24 @@ jenkins:
        - id: ${JENKINS_ADMIN_ID}
          password: ${JENKINS_ADMIN_PASSWORD}
 
+  clouds:
+    - docker:
+        name: "docker"
+        dockerApi:
+          dockerHost:
+            uri: "tcp://docker-dind:2375"
+        templates:
+          - labelString: "docker-agent"
+            dockerTemplateBase:
+              image: "jenkins/agent"
+            remoteFs: "/home/jenkins/agent"
+            connector:
+              attach:
+                user: "jenkins"
+            instanceCapStr: "10"
+            retentionStrategy:
+              idleMinutes: 10
+
 unclassified:
   location:
     url: http://127.0.0.1:8081/

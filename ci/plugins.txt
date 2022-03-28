@@ -86,3 +86,4 @@ pam-auth:1.7
 ldap:2.8
 email-ext:2.87
 dependency-check-jenkins-plugin:5.1.2
+docker-plugin:1.2.6

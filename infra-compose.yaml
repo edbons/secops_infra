@@ -6,14 +6,20 @@ services:
     build:
       context: ./ci      
     hostname: 'jenkins.local'
+    privileged: true
+    depends_on:
+      - jenkins-docker
     ports:
       - 8081:8080
       - 50000:50000
     volumes:
       - jenkins-data:/var/jenkins_home
     environment:
-      - JENKINS_ADMIN_ID=${JENKINS_ADMIN_ID}
+      - JENKINS_ADMIN_ID=${JENKINS_ADMIN_ID}      
       - JENKINS_ADMIN_PASSWORD=${JENKINS_ADMIN_PASSWORD} 
+      - DOCKER_HOST=tcp://docker-dind:2375
+    networks:
+      - jenkins-net
 
   sonar-ce:
     image: sonarqube:9.3.0-community
@@ -31,6 +37,20 @@ services:
     networks:
       - sonar-net
 
+
+  jenkins-docker:
+    image: docker:dind
+    privileged: true
+    hostname: 'docker-dind'
+    networks:
+      - jenkins-net
+    environment:
+      - DOCKER_TLS_CERTDIR=
+    volumes:
+      - jenkins-data:/var/jenkins_home
+    expose:
+      - 2375:2375
+  
 volumes:
   jenkins-data:
   sonar_data: 
@@ -40,3 +60,5 @@ volumes:
 networks:
   sonar-net:
     name: sonar-net
+  jenkins-net:
+    name: jenkins-net
