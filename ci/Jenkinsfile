@@ -9,13 +9,25 @@ pipeline {
         }
         
         stage ('SAST') {
-                    steps {
-                            sh 'wget https://github.com/insidersec/insider/releases/download/2.1.0/insider_2.1.0_linux_x86_64.tar.gz'
-                            sh 'tar -xf insider_2.1.0_linux_x86_64.tar.gz' 
-                            sh 'chmod +x insider'
-                            sh './insider --tech android --target ./packages'
-                    }
+            steps {
+                sh 'wget https://github.com/insidersec/insider/releases/download/2.1.0/insider_2.1.0_linux_x86_64.tar.gz'
+                sh 'tar -xf insider_2.1.0_linux_x86_64.tar.gz' 
+                sh 'chmod +x insider'
+                sh './insider --tech android --target ./packages'
+            }
+        }
+
+        stage ('OWASP Dependency-Check Vulnerabilities') {
+            steps {  
+                dependencyCheck additionalArguments: ''' 
+                                    -o "./" 
+                                    -s "./packages"
+                                    -f "XML" 
+                                    --prettyPrint''', odcInstallation: 'OWASP-DC'
+
+                dependencyCheckPublisher pattern: 'dependency-check-report.xml'
                 }
+            }  
 
     }
 }

@@ -10,6 +10,16 @@ unclassified:
   location:
     url: http://127.0.0.1:8081/
 
+tool:
+  dependency-check:
+    installations:
+    - name: "OWASP-DC"
+      properties:
+      - installSource:
+          installers:
+          - dependencyCheckInstaller:
+              id: "7.0.1"
+
 jobs:
   - script: >
       pipelineJob('goatlin-scan') {
