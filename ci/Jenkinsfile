@@ -1,5 +1,10 @@
 pipeline {
-    agent { label 'docker-agent' }
+    // agent { label 'docker-agent' }
+    
+    agent any
+    environment {
+        APP_IMAGE = 'kotlin-scp-api:latest'
+    }
 
     stages {
         stage('Checkout') {
@@ -28,7 +33,15 @@ pipeline {
 
                 dependencyCheckPublisher pattern: 'dependency-check-report.xml'
                 }
-            }  
+            }
+        
+        stage ('Build docker image') {
+            steps{
+                script{
+                    app = docker.build(env.APP_IMAGE, "./packages/services/api")
+                }
+            }
+        }
 
     }
 }

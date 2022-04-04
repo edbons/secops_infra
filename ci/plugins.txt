@@ -87,3 +87,4 @@ ldap:2.8
 email-ext:2.87
 dependency-check-jenkins-plugin:5.1.2
 docker-plugin:1.2.6
+docker-workflow:1.28
