@@ -42,6 +42,14 @@ pipeline {
                 }
             }
         }
+        
+        stage ('Scan docker image') {
+            steps{
+
+                sh 'curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b .'
+                sh './trivy image --exit-code 0 --no-progress $APP_IMAGE'
+            }
+        }       
 
     }
 }

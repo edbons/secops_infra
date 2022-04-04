@@ -57,8 +57,8 @@ docker compose -f sast-compose.yaml -p sast-cli up -d
 1. ~~Выполнять статическое тестирование безопасности приложения (SAST).~~
 2. ~~Выполнять проверку зависимостей (dependancy check) в конвейере.~~
 3. ~~Добавить агент Jenkins с управлением Docker.~~
-4. Выполнять сборку образа приложения.
-5. Выполнять проверку безопасности образа приложения.
+4. ~~Выполнять сборку образа приложения.~~
+5. ~~Выполнять проверку безопасности образа приложения.~~
 6. Выполнять динамическое тестирование безопасности приложения (DAST).
 7. Выгружать отчеты проверок из конвейера в централизованную систему.
 
@@ -67,3 +67,4 @@ docker compose -f sast-compose.yaml -p sast-cli up -d
 1. Подключение агента Jenkins к серверу docker (dind) выполняется по незащищенному протоколу (порт 2375).
 2. В конвейере выполняется каждый раз обновление списка пакетов на агенте (apt-get update) и установка пакета wget. Для установки wget агент запускается с правами root.
 3. Каждый раз на агенте выгружается база dependancy check.
+4. [DependencyCheck] [WARN] Analyzing `/var/jenkins_home/workspace/goatlin-scan/packages/services/api/package-lock.json` - however, the node_modules directory does not exist. Please run `npm install` prior to running dependency-check
