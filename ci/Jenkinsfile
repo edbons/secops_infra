@@ -1,7 +1,6 @@
 pipeline {
-    // agent { label 'docker-agent' }
+    agent { label '!docker-agent' }
     
-    agent any
     environment {
         APP_IMAGE = 'kotlin-scp-api:latest'
     }
@@ -23,7 +22,7 @@ pipeline {
             }
         }
 
-        stage ('OWASP Dependency-Check Vulnerabilities') {
+        stage ('Dependency-Check') {
             steps {  
                 dependencyCheck additionalArguments: ''' 
                                     -o "./" 
@@ -38,7 +37,7 @@ pipeline {
         stage ('Build docker image') {
             steps{
                 script{
-                    app = docker.build(env.APP_IMAGE, "./packages/services/api")
+                    app = docker.build(env.APP_IMAGE, './packages/services/api')
                 }
             }
         }
@@ -49,7 +48,27 @@ pipeline {
                 sh 'curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b .'
                 sh './trivy image --exit-code 0 --no-progress $APP_IMAGE'
             }
-        }       
+        }
 
+        stage ('DAST') {
+            steps{
+                script{
+                    docker.image('mongo:5.0.6-focal').withRun('--name db --expose 27017') { c1->
+                        docker.image('kotlin-scp-api').withRun('--name api --link db:db -p 8080:8080') {c2->
+                            docker.image('owasp/zap2docker-stable').inside('--link api:api -v ${WORKSPACE}:/zap/wrk/:rw') {
+                                sh 'zap-full-scan.py -t http://api:8080 -J zap.json'    
+                            }
+                        }
+                    }
+                }
+            }
+        }         
+
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: 'zap.json', followSymlinks: false
+        }
     }
 }
