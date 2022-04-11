@@ -88,3 +88,4 @@ email-ext:2.87
 dependency-check-jenkins-plugin:5.1.2
 docker-plugin:1.2.6
 docker-workflow:1.28
+ws-cleanup:0.41

@@ -14,25 +14,29 @@ pipeline {
         
         stage ('SAST') {
             steps {
+                
+                sh 'docker run -v ${WORKSPACE}:${WORKSPACE}:rw -v ${WORKSPACE}:/opt/insider/:rw insidersec/insider -tech android -target ${WORKSPACE}/packages -no-html'
+                
                 // sh 'apt-get update && apt-get install -y wget'
-                sh 'wget https://github.com/insidersec/insider/releases/download/2.1.0/insider_2.1.0_linux_x86_64.tar.gz'
-                sh 'tar -xf insider_2.1.0_linux_x86_64.tar.gz' 
-                sh 'chmod +x insider'
-                sh './insider --tech android --target ./packages'
+                // sh 'wget https://github.com/insidersec/insider/releases/download/2.1.0/insider_2.1.0_linux_x86_64.tar.gz'
+                // sh 'tar -xf insider_2.1.0_linux_x86_64.tar.gz' 
+                // sh 'chmod +x insider'
+                // sh './insider --tech android --target ./packages --no-html'
             }
         }
 
         stage ('Dependency-Check') {
             steps {  
                 dependencyCheck additionalArguments: ''' 
-                                    -o "./" 
+                                    -o "." 
                                     -s "./packages"
-                                    -f "XML" 
+                                    -f "XML"
+                                    -f "JSON" 
                                     --prettyPrint''', odcInstallation: 'OWASP-DC'
 
                 dependencyCheckPublisher pattern: 'dependency-check-report.xml'
-                }
             }
+        }
         
         stage ('Build docker image') {
             steps{
@@ -46,7 +50,7 @@ pipeline {
             steps{
 
                 sh 'curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b .'
-                sh './trivy image --exit-code 0 --no-progress $APP_IMAGE'
+                sh './trivy image --exit-code 0 --no-progress --format json --output trivy-scan.json $APP_IMAGE'
             }
         }
 
@@ -56,7 +60,7 @@ pipeline {
                     docker.image('mongo:5.0.6-focal').withRun('--name db --expose 27017') { c1->
                         docker.image('kotlin-scp-api').withRun('--name api --link db:db -p 8080:8080') {c2->
                             docker.image('owasp/zap2docker-stable').inside('--link api:api -v ${WORKSPACE}:/zap/wrk/:rw') {
-                                sh 'zap-full-scan.py -t http://api:8080 -J zap.json'    
+                                sh 'zap-full-scan.py -t http://api:8080 -J zap-scan.json'    
                             }
                         }
                     }
@@ -68,7 +72,9 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: 'zap.json', followSymlinks: false
+            archiveArtifacts artifacts: '*-scan.json', followSymlinks: false
+            archiveArtifacts artifacts: 'dependency-check-report.json', followSymlinks: false
+            archiveArtifacts artifacts: 'report-*.json', followSymlinks: false
         }
     }
 }
