@@ -16,7 +16,7 @@ pipeline {
             steps {                
                 // sh 'docker run -v ${WORKSPACE}:${WORKSPACE}:rw -v ${WORKSPACE}:/opt/insider/:rw insidersec/insider -tech android -target ${WORKSPACE}/packages -no-html'                
                 // sh 'apt-get update && apt-get install -y wget'
-                
+
                 sh 'wget https://github.com/insidersec/insider/releases/download/2.1.0/insider_2.1.0_linux_x86_64.tar.gz'
                 sh 'tar -xf insider_2.1.0_linux_x86_64.tar.gz' 
                 sh 'chmod +x insider'
@@ -74,6 +74,10 @@ pipeline {
             archiveArtifacts artifacts: '*-scan.json', followSymlinks: false
             archiveArtifacts artifacts: 'dependency-check-report.json', followSymlinks: false
             archiveArtifacts artifacts: 'report-*.json', followSymlinks: false
+            cleanWs(cleanWhenNotBuilt: false,
+                    deleteDirs: true,
+                    disableDeferredWipeout: true,
+                    notFailBuild: true)
         }
     }
 }
