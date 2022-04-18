@@ -1,0 +1,38 @@
+---
+version: '3.8'
+services:
+  nginx:
+    hostname: 'defectdojo.local'
+    networks:
+      - jenkins-ext
+      - backend
+  
+  uwsgi:  
+    networks: 
+      - backend
+  
+  celerybeat:  
+    networks:
+      - backend
+  
+  celeryworker:  
+    networks:
+      - backend
+  
+  initializer: 
+    networks:
+      - backend
+  
+  postgres:  
+    networks:
+      - backend
+  
+  rabbitmq:  
+    networks:
+      - backend
+  
+networks:
+  jenkins-ext:
+    external: true
+    name: jenkins-net
+  backend:

@@ -21,3 +21,5 @@ gradle-app.setting
 sast/
 .env
 tmp/
+*.zip
+reports/archive
